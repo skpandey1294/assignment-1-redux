@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import '../../assets/styles/Posts.css'
+import '../../assets/styles/Albums.css'
 
 import Typography from '@material-ui/core/Typography'
 

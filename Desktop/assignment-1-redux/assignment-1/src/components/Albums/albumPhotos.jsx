@@ -19,6 +19,7 @@ class AlbumPhotos extends Component {
       const { albumId } = this.props.match.params
       const { albumPhotos } = this.props
 
+
      albumPhotos(albumId)
 
   }
@@ -40,6 +41,8 @@ class AlbumPhotos extends Component {
 
     const { photos } = this.props
     const { index } = this.state
+
+    console.log(this.props)
 
 
     this.setState({
@@ -68,11 +71,11 @@ next = () => {
 
     this.initialData(photos, index)
 
-    return loading === true ? <div>Loading...</div> : ( error !== '' ? <div>Something went wrong</div> : (
+    return loading === true ? <div>Loading...</div> : ( error !== '' ? <div>{error.message}</div> : (
         <Fragment>
                 <div>
-                <button className="btn-prev" onClick={() => this.prev()} disabled={index === 0}><SkipPrevious /></button>
-                <button className="btn-next" onClick={() => this.next()} disabled={index === photos.length-1}><SkipNext /></button>
+                <button className="btn-prev" onClick={() => this.prev()} disabled={index === 0} style={{position: "relative", top: '37vh', right: '8vw'}}><SkipPrevious /></button>
+                <button className="btn-next" onClick={() => this.next()} disabled={index === photos.length-1} style={{position: "relative", top: '37vh', left: '7vw'}}><SkipNext /></button>
             </div>
             <div className="card-container">
                 <img className="img" src={currPicture} alt={currTitle}/><br></br>

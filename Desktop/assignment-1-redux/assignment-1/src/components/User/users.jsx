@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../../assets/styles/users.css';
+import '../../assets/styles/Users.css';
 
 import { Link } from 'react-router-dom';
 import { fetchUsers } from '../../redux/async-api/users.js';
