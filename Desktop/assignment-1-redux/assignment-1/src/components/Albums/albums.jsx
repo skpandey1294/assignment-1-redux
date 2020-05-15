@@ -16,8 +16,6 @@ class Albums extends Component {
   render() {
     const { loading, albums, error } = this.props
 
-    console.log(albums)
-
     const albumsList = albums.map((album) => {
       return (
         <Link key={`album-${album.id}`} to={`/album/${album.id}`}>
@@ -29,19 +27,17 @@ class Albums extends Component {
         </Link>
       )
     })
-    return loading === true ? (
-      <div>Loading...</div>
-    ) : (
-      <div className="container1">{albumsList}</div>
-    )
+    return loading === true ? <div>Loading...</div> : ( error !== '' ? <div>Something went wrong</div> :
+      <div className="container1">{albumsList}</div> )
+    
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    loading2: state.loading,
-    albums: state.albums,
-    error2: state.error,
+    loading: state.albumsReducer.loading,
+    albums: state.albumsReducer.albums,
+    error: state.albumsReducer.error,
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
-import '../../assets/styles/Posts.css'
+import '../../assets/styles/AlbumPhotos.css'
 
 import { SkipPrevious, SkipNext }  from '@material-ui/icons'
 import { fetchAlbumPhotos } from '../../redux/async-api/albumPhotos.js'
@@ -66,33 +66,29 @@ next = () => {
     const { loading, photos, error } = this.props
     const { currPicture, currTitle, index } = this.state
 
-    console.log(this.props, "THIS IS PROPS")
-
     this.initialData(photos, index)
 
-    return loading === true ? (
-      <div>Loading...</div>
-    ) : (
+    return loading === true ? <div>Loading...</div> : ( error !== '' ? <div>Something went wrong</div> : (
         <Fragment>
                 <div>
-                <button className="btn-prev" onClick={() => this.prev()} disabled={index === 0} style={{position: "relative", top: '37vh', right: '8vw'}}><SkipPrevious /></button>
-                <button className="btn-next" onClick={() => this.next()} disabled={index === photos.length-1} style={{position: "relative", top: '37vh', left: '7vw'}}><SkipNext /></button>
+                <button className="btn-prev" onClick={() => this.prev()} disabled={index === 0}><SkipPrevious /></button>
+                <button className="btn-next" onClick={() => this.next()} disabled={index === photos.length-1}><SkipNext /></button>
             </div>
             <div className="card-container">
                 <img className="img" src={currPicture} alt={currTitle}/><br></br>
         <span><b>{currTitle}</b></span>
             </div>
-        </Fragment>
+        </Fragment> 
+      )
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.loading,
-    photos: state.photos,
-    error: state.error,
-    sta: state
+    loading: state.albumPhotosReducer.loading,
+    photos: state.albumPhotosReducer.photos,
+    error: state.albumPhotosReducer.error
   }
 }
 

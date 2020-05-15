@@ -7,6 +7,9 @@ import { fetchPosts } from '../../redux/async-api/posts.js'
 import { connect } from 'react-redux'
 
 
+import Typography from '@material-ui/core/Typography';
+
+
 class Posts extends Component {
 
     componentDidMount() {
@@ -16,32 +19,37 @@ class Posts extends Component {
     render() {
         const { loading, posts, error } = this.props
 
-        console.log(posts)
 
-        // const postsCard = posts.map(post => (
-        //     <Link to={`/${post.id}`} >
-        //     <div key={post.id} id={`post-${post.id}`} className="card">
-        //         <span> <b>UserId</b>: {post.userId} </span>
-        //         <span> <b>PostId</b>: {post.id} </span>
-        //         <span><b>Title</b>: {post.title} </span>
-        //     </div>
-        //     </Link>
-        // )) 
+        const postsCard = posts.map(post => (
+            <Link key={`post-${post.id}`} to={`/${post.id}`} >
+            <div id={`post-${post.id}`} className="card">
+            <Typography gutterBottom component="p">
+                <span> <b>UserId</b>: {post.userId} </span>
+            </Typography>
+            <Typography gutterBottom component="p">
+                <span> <b>PostId</b>: {post.id} </span>
+            </Typography>
+            <Typography gutterBottom component="p">
+                <span><b>Title</b>: {post.title} </span>
+            </Typography>
+            </div>
+            </Link>
+        )) 
         return (
 
-            loading === true ? <div>Loading...</div> :
+            loading === true ? <div>Loading...</div> : ( error !== '' ? <div>{error.message}</div> :
             <div className="container1">
-                 {/* {postsCard} */}
-             </div>
+                 {postsCard}
+             </div> )
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.loading,
-        posts: state.posts,
-        error: state.error
+        loading: state.postReducer.loading,
+        posts: state.postReducer.posts,
+        error: state.postReducer.error
     }
 }
 

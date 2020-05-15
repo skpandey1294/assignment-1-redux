@@ -3,7 +3,7 @@ import {
     FETCH_ALBUM_PHOTOS_SUCCESS,
     FETCH_ALBUM_PHOTOS_FAILURE } from '../action-constant/index.js'
 
-   const initialState = {
+   let initialState = {
        loading: false,
        photos: [],
        error: ''

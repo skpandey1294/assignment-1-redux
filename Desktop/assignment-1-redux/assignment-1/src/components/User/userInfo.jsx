@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from 'react'
 
-import '../../assets/styles/Posts.css'
+import '../../assets/styles/UserInfo.css'
 
 import { fetchUserInfo } from '../../redux/async-api/userInfo.js'
 import { connect } from 'react-redux'
-
-
 import Typography from '@material-ui/core/Typography';
 
 
@@ -51,19 +49,19 @@ class Users extends Component {
         )
         return (
 
-            loading === true ? <div>Loading...</div> :
+            loading === true ? <div>Loading...</div> : ( error !== '' ? <div>{error.message}</div> :
             <div className="container1">
                  {userInformation}
-             </div>
+             </div> )
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.loading,
-        userDetails: state.userDetails,
-        error: state.error
+        loading: state.userInfoReducer.loading,
+        userDetails: state.userInfoReducer.userDetails,
+        error: state.userInfoReducer.error
     }
 }
 
