@@ -50,7 +50,7 @@ function Navbar() {
           </Button>
 
           <Button color="inherit">
-          <Link to="/albums" className={classes.link}>
+          <Link to="/user/albums" className={classes.link}>
           Albums
           </Link>
           </Button>

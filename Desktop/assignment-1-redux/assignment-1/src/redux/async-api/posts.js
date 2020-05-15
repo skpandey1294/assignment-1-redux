@@ -6,7 +6,6 @@ import {
 
 import axios from 'axios'
 
-// import { store } from '../store/index.js'
 
 import baseUrl from '../../config'
 
@@ -22,7 +21,3 @@ export const fetchPosts = () => {
         })
     }
 }
-
-// store.dispatch(fetchPosts())
-
-// store.subscribe(() => console.log(store.getState()))
