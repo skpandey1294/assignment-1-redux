@@ -74,8 +74,8 @@ next = () => {
     return loading === true ? <div>Loading...</div> : ( error !== '' ? <div>{error.message}</div> : (
         <Fragment>
                 <div>
-                <button className="btn-prev" onClick={() => this.prev()} disabled={index === 0} style={{position: "relative", top: '37vh', right: '8vw'}}><SkipPrevious /></button>
-                <button className="btn-next" onClick={() => this.next()} disabled={index === photos.length-1} style={{position: "relative", top: '37vh', left: '7vw'}}><SkipNext /></button>
+                <button className="btn-prev" onClick={() => this.prev()} disabled={index === 0}><SkipPrevious /></button>
+                <button className="btn-next" onClick={() => this.next()} disabled={index === photos.length-1}><SkipNext /></button>
             </div>
             <div className="card-container">
                 <img className="img" src={currPicture} alt={currTitle}/><br></br>
