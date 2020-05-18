@@ -1,9 +1,7 @@
 .slider {
     position: relative;
-    width: 720px;
-    height: 720px;
-    top: 80px;
-    left: 540px;
+    width: 100%;
+    height: 885px;
     padding-left: 100px;
     box-sizing: border-box;
     margin: 0;
@@ -11,37 +9,15 @@
     display: flex;
     align-items: center;
     overflow: hidden;
+    
   }
+  
   .slide {
     min-width: 100%;
     height: 100%;
-    transition: 0.5s;
     overflow-y: hidden;
   }
-  .prev {
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10%;
-    height: 80%;
-    background: none;
-    border: none;
-    outline: none;
-    transition: 0.5s;
-  }
-  .next {
-    right: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10%;
-    height: 80%;
-    background: none;
-    border: none;
-    outline: none;
-    transition: 0.5s;
-  }
+
   .img {
     width: 100%;
     height: 100%;
