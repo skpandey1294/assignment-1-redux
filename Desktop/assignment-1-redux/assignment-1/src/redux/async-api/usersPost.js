@@ -10,7 +10,7 @@ import {
   import axios from 'axios'
   
   
-  import baseUrl from '../../config'
+  import { baseUrl } from '../../config'
   
   export const fetchUserPost = (postId) => {
       return (dispatch) => {

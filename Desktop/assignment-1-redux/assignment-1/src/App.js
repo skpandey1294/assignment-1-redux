@@ -13,7 +13,7 @@ import UserPost from './components/Post/userPost.jsx'
 import Users from './components/User/users.jsx'
 import UserInfo from './components/User/userInfo.jsx'
 import Albums from './components/Albums/albums.jsx'
-import AlbumPhotos from './components/Albums/albumPhotos.jsx'
+import Photos from './components/Albums/photos.jsx'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
  
 <Switch>
           <Route path="/user/albums" exact component={Albums} />
-          <Route path="/album/:albumId" exact component={AlbumPhotos} />
+          <Route path="/album/:albumId" exact component={Photos} />
           <Route path="/users/:userId" component={UserInfo} />
           <Route path="/users" exact component={Users} />
           <Route path="/" exact component={Posts} />
